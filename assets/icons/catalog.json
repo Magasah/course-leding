@@ -1,0 +1,526 @@
+{
+  "_doc": "Каталог иконок TAJSEL Mobile. Источник для генерации lib/core/ui/app_svg_icons.dart. Правила — docs/ICONS.md.",
+  "default_category": "assets/icons/default-game.svg",
+  "category_logos": {
+    "adobe": {
+      "path": "assets/icons/adobe.svg",
+      "recolor": false
+    },
+    "ai": {
+      "path": "assets/icons/ai.svg",
+      "recolor": false
+    },
+    "apex-legends": {
+      "path": "assets/icons/apex-legends.svg",
+      "recolor": false
+    },
+    "app-store": {
+      "path": "assets/icons/apple.svg",
+      "recolor": false
+    },
+    "apple": {
+      "path": "assets/icons/apple.svg",
+      "recolor": false
+    },
+    "arena-breakout": {
+      "path": "assets/icons/arena-breakout.svg",
+      "recolor": false
+    },
+    "assassins-creed": {
+      "path": "assets/icons/assassins-creed.svg",
+      "recolor": false
+    },
+    "brawl-stars": {
+      "path": "assets/icons/brawl-stars.svg",
+      "recolor": false
+    },
+    "call-of-duty": {
+      "path": "assets/icons/call-of-duty.svg",
+      "recolor": false
+    },
+    "canva": {
+      "path": "assets/icons/canva.svg",
+      "recolor": false
+    },
+    "capcut": {
+      "path": "assets/icons/capcut.svg",
+      "recolor": false
+    },
+    "car-parking": {
+      "path": "assets/icons/car-parking.svg",
+      "recolor": false
+    },
+    "chatgpt": {
+      "path": "assets/icons/ai.svg",
+      "recolor": false
+    },
+    "clash-of-clans": {
+      "path": "assets/icons/clash-of-clans.svg",
+      "recolor": false
+    },
+    "clash-royale": {
+      "path": "assets/icons/clash-royale.svg",
+      "recolor": false
+    },
+    "claude": {
+      "path": "assets/icons/claude.svg",
+      "recolor": false
+    },
+    "cod": {
+      "path": "assets/icons/call-of-duty.svg",
+      "recolor": false
+    },
+    "cod-mobile": {
+      "path": "assets/icons/cod-mobile.svg",
+      "recolor": false
+    },
+    "codm": {
+      "path": "assets/icons/cod-mobile.svg",
+      "recolor": false
+    },
+    "cs2": {
+      "path": "assets/icons/cs2.svg",
+      "recolor": false
+    },
+    "cursor": {
+      "path": "assets/icons/cursor.svg",
+      "recolor": false
+    },
+    "cyberpunk": {
+      "path": "assets/icons/cyberpunk.svg",
+      "recolor": false
+    },
+    "dead-by-daylight": {
+      "path": "assets/icons/dead-by-daylight.svg",
+      "recolor": false
+    },
+    "deepseek": {
+      "path": "assets/icons/deepseek.svg",
+      "recolor": false
+    },
+    "discord": {
+      "path": "assets/icons/discord.svg",
+      "recolor": false
+    },
+    "dota2": {
+      "path": "assets/icons/dota2.svg",
+      "recolor": false
+    },
+    "duolingo": {
+      "path": "assets/icons/duolingo.svg",
+      "recolor": false
+    },
+    "elevenlabs": {
+      "path": "assets/icons/elevenlabs.svg",
+      "recolor": false
+    },
+    "epic-games": {
+      "path": "assets/icons/epic-games.svg",
+      "recolor": false
+    },
+    "fc-mobile": {
+      "path": "assets/icons/fc-mobile.svg",
+      "recolor": false
+    },
+    "figma": {
+      "path": "assets/icons/figma.svg",
+      "recolor": false
+    },
+    "fortnite": {
+      "path": "assets/icons/fortnite.svg",
+      "recolor": false
+    },
+    "forza": {
+      "path": "assets/icons/forza-horizon.svg",
+      "recolor": false
+    },
+    "forza-horizon": {
+      "path": "assets/icons/forza-horizon.svg",
+      "recolor": false
+    },
+    "fragment-gift": {
+      "path": "assets/icons/ui/fragment-gift.svg",
+      "recolor": true
+    },
+    "fragment-number": {
+      "path": "assets/icons/ui/fragment-number.svg",
+      "recolor": true
+    },
+    "fragment-username": {
+      "path": "assets/icons/ui/fragment-username.svg",
+      "recolor": true
+    },
+    "free-fire": {
+      "path": "assets/icons/raster/free-fire.webp",
+      "recolor": false,
+      "raster": true
+    },
+    "game-pass": {
+      "path": "assets/icons/xbox.svg",
+      "recolor": false
+    },
+    "gemini": {
+      "path": "assets/icons/gemini.svg",
+      "recolor": false
+    },
+    "genshin": {
+      "path": "assets/icons/genshin-impact.svg",
+      "recolor": false
+    },
+    "genshin-impact": {
+      "path": "assets/icons/genshin-impact.svg",
+      "recolor": false
+    },
+    "google-play": {
+      "path": "assets/icons/google-play.svg",
+      "recolor": false
+    },
+    "grand-mobile": {
+      "path": "assets/icons/raster/grand-mobile.webp",
+      "recolor": false,
+      "raster": true
+    },
+    "grok": {
+      "path": "assets/icons/grok.svg",
+      "recolor": false
+    },
+    "gta-v": {
+      "path": "assets/icons/gta5.svg",
+      "recolor": false
+    },
+    "gta-vi": {
+      "path": "assets/icons/gta6.svg",
+      "recolor": false
+    },
+    "gta5": {
+      "path": "assets/icons/gta5.svg",
+      "recolor": false
+    },
+    "gta5-rp": {
+      "path": "assets/icons/gta5-rp.svg",
+      "recolor": false
+    },
+    "gta6": {
+      "path": "assets/icons/gta6.svg",
+      "recolor": false
+    },
+    "instagram": {
+      "path": "assets/icons/instagram.svg",
+      "recolor": false
+    },
+    "instagram-accounts": {
+      "path": "assets/icons/instagram.svg",
+      "recolor": false
+    },
+    "instagram-boost": {
+      "path": "assets/icons/instagram.svg",
+      "recolor": false
+    },
+    "instagram-target": {
+      "path": "assets/icons/instagram.svg",
+      "recolor": false
+    },
+    "instagram_account": {
+      "path": "assets/icons/instagram.svg",
+      "recolor": false
+    },
+    "instagram_boost": {
+      "path": "assets/icons/instagram.svg",
+      "recolor": false
+    },
+    "instagram_target": {
+      "path": "assets/icons/instagram.svg",
+      "recolor": false
+    },
+    "itunes": {
+      "path": "assets/icons/itunes.svg",
+      "recolor": false
+    },
+    "kling": {
+      "path": "assets/icons/kling.svg",
+      "recolor": false
+    },
+    "leonardo-ai": {
+      "path": "assets/icons/leonardo-ai.svg",
+      "recolor": false
+    },
+    "lovable": {
+      "path": "assets/icons/lovable.svg",
+      "recolor": false
+    },
+    "meshy": {
+      "path": "assets/icons/meshy.svg",
+      "recolor": false
+    },
+    "meta-verified": {
+      "path": "assets/icons/instagram.svg",
+      "recolor": false
+    },
+    "meta_verified": {
+      "path": "assets/icons/instagram.svg",
+      "recolor": false
+    },
+    "microsoft": {
+      "path": "assets/icons/microsoft.svg",
+      "recolor": false
+    },
+    "midjourney": {
+      "path": "assets/icons/midjourney.svg",
+      "recolor": false
+    },
+    "minecraft": {
+      "path": "assets/icons/minecraft.svg",
+      "recolor": false
+    },
+    "minecraft-pc": {
+      "path": "assets/icons/minecraft.svg",
+      "recolor": false
+    },
+    "mobile-legends": {
+      "path": "assets/icons/mobile-legends.svg",
+      "recolor": false
+    },
+    "mortal-kombat": {
+      "path": "assets/icons/mortal-kombat.svg",
+      "recolor": false
+    },
+    "netflix": {
+      "path": "assets/icons/netflix.svg",
+      "recolor": false
+    },
+    "notion": {
+      "path": "assets/icons/notion.svg",
+      "recolor": false
+    },
+    "office": {
+      "path": "assets/icons/microsoft.svg",
+      "recolor": false
+    },
+    "perplexity": {
+      "path": "assets/icons/perplexity.svg",
+      "recolor": false
+    },
+    "playstation": {
+      "path": "assets/icons/playstation.svg",
+      "recolor": false
+    },
+    "ps-plus": {
+      "path": "assets/icons/playstation.svg",
+      "recolor": false
+    },
+    "psn": {
+      "path": "assets/icons/playstation.svg",
+      "recolor": false
+    },
+    "pubg": {
+      "path": "assets/icons/pubg.svg",
+      "recolor": false
+    },
+    "pubg-mobile": {
+      "path": "assets/icons/pubg-mobile.svg",
+      "recolor": false
+    },
+    "pubg-pc": {
+      "path": "assets/icons/pubg.svg",
+      "recolor": false
+    },
+    "roblox": {
+      "path": "assets/icons/roblox.svg",
+      "recolor": false
+    },
+    "robux": {
+      "path": "assets/icons/roblox.svg",
+      "recolor": false
+    },
+    "rockstar": {
+      "path": "assets/icons/rockstar.svg",
+      "recolor": false
+    },
+    "runway": {
+      "path": "assets/icons/runway.svg",
+      "recolor": false
+    },
+    "rust": {
+      "path": "assets/icons/rust.svg",
+      "recolor": false
+    },
+    "snapchat": {
+      "path": "assets/icons/snapchat.svg",
+      "recolor": false
+    },
+    "spotify": {
+      "path": "assets/icons/spotify.svg",
+      "recolor": false
+    },
+    "standoff-2": {
+      "path": "assets/icons/standoff2.svg",
+      "recolor": false
+    },
+    "standoff2": {
+      "path": "assets/icons/standoff2.svg",
+      "recolor": false
+    },
+    "starcraft": {
+      "path": "assets/icons/starcraft.svg",
+      "recolor": false
+    },
+    "steam": {
+      "path": "assets/icons/steam.svg",
+      "recolor": false
+    },
+    "telegram": {
+      "path": "assets/icons/telegram.svg",
+      "recolor": false
+    },
+    "tiktok": {
+      "path": "assets/icons/tiktok.svg",
+      "recolor": false
+    },
+    "tiktok-accounts": {
+      "path": "assets/icons/tiktok.svg",
+      "recolor": false
+    },
+    "tiktok-coins": {
+      "path": "assets/icons/tiktok.svg",
+      "recolor": false
+    },
+    "tiktok-promotion": {
+      "path": "assets/icons/tiktok.svg",
+      "recolor": false
+    },
+    "tiktok_account": {
+      "path": "assets/icons/tiktok.svg",
+      "recolor": false
+    },
+    "tiktok_coins": {
+      "path": "assets/icons/tiktok.svg",
+      "recolor": false
+    },
+    "tiktok_promo": {
+      "path": "assets/icons/tiktok.svg",
+      "recolor": false
+    },
+    "uc-pubg": {
+      "path": "assets/icons/pubg-mobile.svg",
+      "recolor": false
+    },
+    "valorant": {
+      "path": "assets/icons/valorant.svg",
+      "recolor": false
+    },
+    "vbucks": {
+      "path": "assets/icons/fortnite.svg",
+      "recolor": false
+    },
+    "vk": {
+      "path": "assets/icons/vk.svg",
+      "recolor": false
+    },
+    "windows": {
+      "path": "assets/icons/windows.svg",
+      "recolor": false
+    },
+    "world-of-tanks": {
+      "path": "assets/icons/world-of-tanks.svg",
+      "recolor": false
+    },
+    "wot-blitz": {
+      "path": "assets/icons/world-of-tanks.svg",
+      "recolor": false
+    },
+    "xbox": {
+      "path": "assets/icons/xbox.svg",
+      "recolor": false
+    },
+    "youtube": {
+      "path": "assets/icons/youtube.svg",
+      "recolor": false
+    }
+  },
+  "payments": {
+    "alif": "assets/icons/alif.svg",
+    "dc_city": "assets/icons/dc_city.svg",
+    "visa": "assets/icons/visa.svg",
+    "mastercard": "assets/icons/mastercard.svg",
+    "yoomoney": "assets/icons/yoomoney.svg"
+  },
+  "flags": {
+    "tg": "assets/icons/flags/tj.svg",
+    "ru": "assets/icons/flags/ru.svg",
+    "en": "assets/icons/flags/us.svg"
+  },
+  "social_share": {
+    "telegram": "assets/icons/telegram.svg",
+    "whatsapp": "assets/icons/whatsapp.svg",
+    "vk": "assets/icons/vk.svg",
+    "instagram": "assets/icons/instagram.svg",
+    "tiktok": "assets/icons/tiktok.svg",
+    "youtube": "assets/icons/youtube.svg"
+  },
+  "badges": {
+    "fragment-verified": "assets/icons/badges/fragment-verified.svg",
+    "premium": "assets/icons/badges/premium.svg",
+    "product-box": "assets/icons/badges/product-box.svg",
+    "star-orange": "assets/icons/badges/star-orange.svg",
+    "star": "assets/icons/badges/star.svg",
+    "steam-round": "assets/icons/badges/steam-round.svg",
+    "uc-coin": "assets/icons/badges/uc-coin.svg"
+  },
+  "ui": {
+    "ai-brain": "assets/icons/ui/ai-brain.svg",
+    "arrow-left-circle": "assets/icons/ui/arrow-left-circle.svg",
+    "arrow-right-circle": "assets/icons/ui/arrow-right-circle.svg",
+    "bell": "assets/icons/ui/bell.svg",
+    "calculator": "assets/icons/ui/calculator.svg",
+    "cart-minus": "assets/icons/ui/cart-minus.svg",
+    "cart": "assets/icons/ui/cart.svg",
+    "check-circle": "assets/icons/ui/check-circle.svg",
+    "check-done": "assets/icons/ui/check-done.svg",
+    "clock": "assets/icons/ui/clock.svg",
+    "code": "assets/icons/ui/code.svg",
+    "conversions": "assets/icons/ui/conversions.svg",
+    "copy": "assets/icons/ui/copy.svg",
+    "credit-card": "assets/icons/ui/credit-card.svg",
+    "dashboard": "assets/icons/ui/dashboard.svg",
+    "diamond": "assets/icons/ui/diamond.svg",
+    "eye": "assets/icons/ui/eye.svg",
+    "favorite-add": "assets/icons/ui/favorite-add.svg",
+    "fire": "assets/icons/ui/fire.svg",
+    "fragment-gift": "assets/icons/ui/fragment-gift.svg",
+    "fragment-number": "assets/icons/ui/fragment-number.svg",
+    "fragment-username": "assets/icons/ui/fragment-username.svg",
+    "gamepad": "assets/icons/ui/gamepad.svg",
+    "headset": "assets/icons/ui/headset.svg",
+    "heart": "assets/icons/ui/heart.svg",
+    "hits": "assets/icons/ui/hits.svg",
+    "home": "assets/icons/ui/home.svg",
+    "id-verification": "assets/icons/ui/id-verification.svg",
+    "lightning-fast": "assets/icons/ui/lightning-fast.svg",
+    "lightning": "assets/icons/ui/lightning.svg",
+    "link": "assets/icons/ui/link.svg",
+    "list-search": "assets/icons/ui/list-search.svg",
+    "overview": "assets/icons/ui/overview.svg",
+    "package": "assets/icons/ui/package.svg",
+    "partner-cabinet": "assets/icons/ui/partner-cabinet.svg",
+    "payouts": "assets/icons/ui/payouts.svg",
+    "promo-code": "assets/icons/ui/promo-code.svg",
+    "rocket": "assets/icons/ui/rocket.svg",
+    "seller-cabinet": "assets/icons/ui/seller-cabinet.svg",
+    "service": "assets/icons/ui/service.svg",
+    "settings": "assets/icons/ui/settings.svg",
+    "share": "assets/icons/ui/share.svg",
+    "smartphone": "assets/icons/ui/smartphone.svg",
+    "tariff-plan": "assets/icons/ui/tariff-plan.svg",
+    "telegram-outline": "assets/icons/ui/telegram-outline.svg",
+    "unlock": "assets/icons/ui/unlock.svg",
+    "user": "assets/icons/ui/user.svg",
+    "wallet-plus": "assets/icons/ui/wallet-plus.svg",
+    "warning": "assets/icons/ui/warning.svg",
+    "x-circle": "assets/icons/ui/x-circle.svg"
+  },
+  "heavy_over_150kb": [],
+  "unmapped_brand_files": [
+    "assets/icons/pubg-alt.svg"
+  ],
+  "_compressed": "M8: 17 heavy logos compressed with svgo (tool/svgo.config.mjs, precision 2, traced ones 0); free-fire and grand-mobile stayed over 150 KB and are WebP 192x192 in raster/. Originals: ../frontend/public/icons/."
+}

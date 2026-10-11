@@ -1,0 +1,1177 @@
+<!DOCTYPE html>
+<html lang="ru" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Мини-курс по созданию ИИ-видео с Claude Code & Manus 2.0 | mcode</title>
+  <meta name="description" content="Создавай кинематографичные 4K видео за 1 минуту с помощью Claude Code и скилла Manus 2.0. Пошаговый мини-курс для блогеров, селлеров и фрилансеров.">
+  
+  <!-- Favicon / Brand Icon -->
+  <link rel="icon" type="image/svg+xml" href="assets/icons/ui/ai-brain.svg">
+
+  <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              bg: '#090D16',
+              secondary: '#0D1322',
+              card: 'rgba(15, 23, 42, 0.7)',
+              cyan: '#00F2FE',
+              blue: '#4FACFE',
+              border: 'rgba(255, 255, 255, 0.08)'
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', '-apple-system', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body class="bg-[#090D16] text-slate-100 min-h-screen selection:bg-[#00F2FE]/20 selection:text-[#00F2FE] relative">
+
+  <!-- ==========================================================================
+       Ambient Glow Effects (Linear / Vercel style backdrop)
+       ========================================================================== -->
+  <div class="fixed top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[550px] -z-10 pointer-events-none opacity-40 overflow-hidden">
+    <div class="absolute top-[-100px] left-1/4 w-[600px] h-[450px] bg-[#00F2FE]/15 rounded-full blur-[140px] animate-pulse-glow"></div>
+    <div class="absolute top-[50px] right-1/4 w-[500px] h-[400px] bg-[#4FACFE]/10 rounded-full blur-[130px]"></div>
+  </div>
+
+  <!-- ==========================================================================
+       Header (Шапка)
+       ========================================================================== -->
+  <header class="sticky top-0 z-50 glass-nav border-b border-white/[0.08] transition-all">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Logo -->
+      <a href="#" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 rounded-xl bg-white/[0.04] border border-white/10 flex items-center justify-center p-2 group-hover:border-[#00F2FE]/50 transition-colors shadow-inner">
+          <span class="icon-mask icon-brain text-[#00F2FE]"></span>
+        </div>
+        <div class="flex flex-col">
+          <span class="text-xl font-bold tracking-tight text-white flex items-center">
+            mcode<span class="text-[#00F2FE] drop-shadow-[0_0_8px_#00F2FE] text-2xl leading-none">.</span>
+          </span>
+          <span class="text-[10px] tracking-wider uppercase text-slate-400 font-mono">AI Studio 2026</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
+        <a href="#about" class="hover:text-[#00F2FE] transition-colors" data-i18n="nav_about">О курсе</a>
+        <a href="#curriculum" class="hover:text-[#00F2FE] transition-colors" data-i18n="nav_curriculum">Программа</a>
+        <a href="#audience" class="hover:text-[#00F2FE] transition-colors" data-i18n="nav_audience">Для кого</a>
+        <a href="#guarantees" class="hover:text-[#00F2FE] transition-colors" data-i18n="nav_guarantees">Гарантии</a>
+      </nav>
+
+      <!-- Right Actions: Language Switcher & Buy Button -->
+      <div class="hidden sm:flex items-center gap-4">
+        
+        <!-- Language Switcher (RU / TJ / EN) -->
+        <div class="flex items-center p-1 bg-white/[0.04] border border-white/[0.08] rounded-xl text-xs font-semibold">
+          <button type="button" data-lang-btn="ru" class="px-2.5 py-1.5 rounded-lg flex items-center gap-1.5 transition-all text-white bg-white/15 border border-cyan-400/40">
+            <img src="assets/icons/flags/ru.svg" class="w-4 h-2.5 object-cover rounded-xs" alt="RU">
+            <span>RU</span>
+          </button>
+          <button type="button" data-lang-btn="tj" class="px-2.5 py-1.5 rounded-lg flex items-center gap-1.5 transition-all text-slate-400 hover:text-white">
+            <img src="assets/icons/flags/tj.svg" class="w-4 h-2.5 object-cover rounded-xs" alt="TJ">
+            <span>TJ</span>
+          </button>
+          <button type="button" data-lang-btn="en" class="px-2.5 py-1.5 rounded-lg flex items-center gap-1.5 transition-all text-slate-400 hover:text-white">
+            <img src="assets/icons/flags/us.svg" class="w-4 h-2.5 object-cover rounded-xs" alt="EN">
+            <span>EN</span>
+          </button>
+        </div>
+
+        <!-- Buy Course Header Button -->
+        <a href="#pricing" class="glow-cyan-btn text-slate-950 font-semibold text-sm px-5 py-2.5 rounded-xl flex items-center gap-2 group">
+          <span class="icon-mask icon-cart text-slate-950 w-4 h-4"></span>
+          <span data-i18n="nav_buy">Купить курс</span>
+        </a>
+
+      </div>
+
+      <!-- Mobile Hamburger Button -->
+      <div class="flex sm:hidden items-center gap-2">
+        <button id="mobileMenuToggle" type="button" class="p-2 rounded-xl bg-white/[0.04] border border-white/10 text-slate-300 hover:text-white" aria-label="Меню">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+          </svg>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Mobile Menu Dropdown -->
+    <div id="mobileMenuDropdown" class="hidden sm:hidden border-t border-white/[0.08] bg-[#090D16]/95 backdrop-blur-2xl px-6 py-6 space-y-4">
+      <nav class="flex flex-col space-y-3 text-base font-medium text-slate-200">
+        <a href="#about" class="mobile-nav-link py-1 hover:text-[#00F2FE]" data-i18n="nav_about">О курсе</a>
+        <a href="#curriculum" class="mobile-nav-link py-1 hover:text-[#00F2FE]" data-i18n="nav_curriculum">Программа</a>
+        <a href="#audience" class="mobile-nav-link py-1 hover:text-[#00F2FE]" data-i18n="nav_audience">Для кого</a>
+        <a href="#guarantees" class="mobile-nav-link py-1 hover:text-[#00F2FE]" data-i18n="nav_guarantees">Гарантии</a>
+      </nav>
+
+      <!-- Language selector mobile -->
+      <div class="pt-2 border-t border-white/[0.06] flex items-center justify-between">
+        <span class="text-xs text-slate-400">Язык / Забон:</span>
+        <div class="flex items-center gap-1.5 p-1 bg-white/[0.04] border border-white/[0.08] rounded-xl text-xs font-semibold">
+          <button type="button" data-lang-btn="ru" class="px-2 py-1 rounded-lg flex items-center gap-1">
+            <img src="assets/icons/flags/ru.svg" class="w-4 h-2.5 object-cover" alt="RU"> RU
+          </button>
+          <button type="button" data-lang-btn="tj" class="px-2 py-1 rounded-lg flex items-center gap-1">
+            <img src="assets/icons/flags/tj.svg" class="w-4 h-2.5 object-cover" alt="TJ"> TJ
+          </button>
+          <button type="button" data-lang-btn="en" class="px-2 py-1 rounded-lg flex items-center gap-1">
+            <img src="assets/icons/flags/us.svg" class="w-4 h-2.5 object-cover" alt="EN"> EN
+          </button>
+        </div>
+      </div>
+
+      <a href="#pricing" class="mobile-nav-link w-full glow-cyan-btn text-slate-950 font-semibold text-center py-3 rounded-xl block">
+        <span data-i18n="nav_buy">Купить курс ($5)</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       Hero Section (Главный экран)
+       ========================================================================== -->
+  <section id="about" class="relative pt-12 pb-20 md:pt-20 md:pb-32 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Top Badge (Clean SVG, Zero Emojis) -->
+      <div class="flex justify-center mb-8">
+        <div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/[0.03] border border-cyan-400/30 text-cyan-300 text-xs sm:text-sm font-medium tracking-wide shadow-[0_0_20px_rgba(0,242,254,0.1)] backdrop-blur-xl">
+          <span class="icon-mask icon-lightning text-[#00F2FE] w-4 h-4"></span>
+          <span data-i18n="hero_badge">Новый формат видео 2026 года</span>
+          <span class="w-1.5 h-1.5 rounded-full bg-[#00F2FE] animate-ping"></span>
+        </div>
+      </div>
+
+      <!-- Main Headline & Subtitle -->
+      <div class="text-center max-w-4xl mx-auto">
+        <h1 class="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.1] mb-6">
+          <span class="text-gradient-hero" data-i18n="hero_title_prefix">Создавай кинематографичные видео за 1 минуту с помощью ИИ </span>
+          <span class="text-gradient-accent drop-shadow-[0_0_30px_rgba(0,242,254,0.3)]" data-i18n="hero_title_accent">Claude Code</span>
+        </h1>
+        
+        <p class="text-base sm:text-lg md:text-xl text-slate-300 font-normal leading-relaxed max-w-2xl mx-auto mb-10 text-slate-300/90" data-i18n="hero_subtitle">
+          Без опыта монтажа, сложных программ и съемок. Пошаговый мини-курс + готовый ИИ-скилл в стиле Manus 2.0.
+        </p>
+
+        <!-- CTA Buttons -->
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
+          <!-- Primary CTA Button -->
+          <a href="#pricing" class="w-full sm:w-auto glow-cyan-btn text-slate-950 font-bold text-base px-8 py-4 rounded-xl flex items-center justify-center gap-3 group">
+            <span class="icon-mask icon-rocket text-slate-950 w-5 h-5"></span>
+            <span data-i18n="hero_btn_primary">Забрать курс и скилл</span>
+            <span class="icon-mask icon-arrow-right text-slate-950 w-4 h-4 group-hover:translate-x-1 transition-transform"></span>
+          </a>
+
+          <!-- Secondary CTA Button: Watch Demo Video -->
+          <button type="button" data-open-demo class="w-full sm:w-auto px-7 py-4 rounded-xl bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 hover:border-[#00F2FE]/40 text-white font-semibold text-base flex items-center justify-center gap-3 transition-all backdrop-blur-xl group">
+            <div class="w-6 h-6 rounded-full bg-[#00F2FE]/15 flex items-center justify-center border border-[#00F2FE]/40 group-hover:scale-110 transition-transform">
+              <svg class="w-3 h-3 text-[#00F2FE] translate-x-0.5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M8 5v14l11-7z"></path>
+              </svg>
+            </div>
+            <span data-i18n="hero_btn_secondary">Смотреть демо видео</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- ======================================================================
+           Interactive UI-Mockup / Video-Player with Glow Effect
+           ====================================================================== -->
+      <div class="relative max-w-5xl mx-auto">
+        
+        <!-- Ambient Neon Glow Behind Player -->
+        <div class="absolute -inset-1 bg-gradient-to-r from-[#00F2FE]/25 via-[#4FACFE]/20 to-purple-600/25 rounded-3xl blur-2xl opacity-60 -z-10"></div>
+
+        <!-- Main Window Container -->
+        <div class="glass-card-static rounded-2xl border border-white/15 overflow-hidden shadow-2xl">
+          
+          <!-- Studio Header Bar -->
+          <div class="px-5 py-3.5 bg-[#0D1322]/90 border-b border-white/[0.08] flex items-center justify-between">
+            <div class="flex items-center gap-2">
+              <span class="w-3 h-3 rounded-full bg-rose-500/80 inline-block"></span>
+              <span class="w-3 h-3 rounded-full bg-amber-500/80 inline-block"></span>
+              <span class="w-3 h-3 rounded-full bg-emerald-500/80 inline-block"></span>
+              <span class="ml-3 text-xs font-mono text-slate-400 flex items-center gap-2">
+                <span class="icon-mask icon-code text-[#00F2FE] w-3.5 h-3.5"></span>
+                <span data-i18n="hero_mockup_terminal_title">Терминал Claude Code — Автономный режиссер</span>
+              </span>
+            </div>
+            
+            <div class="flex items-center gap-3">
+              <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-mono bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                Manus 2.0 Engine
+              </span>
+              <span class="hidden sm:inline-block text-[11px] font-mono text-slate-500">v2.4.1</span>
+            </div>
+          </div>
+
+          <!-- Split Studio Workspace: Terminal & Video Preview -->
+          <div class="grid grid-cols-1 lg:grid-cols-12 bg-[#090D16]/95">
+            
+            <!-- Left Column: Terminal Automation Log (5 Cols) -->
+            <div class="lg:col-span-5 p-5 border-b lg:border-b-0 lg:border-r border-white/[0.08] font-mono text-xs space-y-4">
+              
+              <!-- Command 1 -->
+              <div>
+                <div class="flex items-center gap-2 text-slate-400 mb-1">
+                  <span class="text-[#00F2FE] font-bold">❯</span>
+                  <span class="text-white" data-i18n="hero_mockup_cmd_1">claude skill load manus-video-engine</span>
+                </div>
+                <div class="pl-4 text-slate-400 border-l border-cyan-500/30 text-[11px] leading-relaxed" data-i18n="hero_mockup_res_1">
+                  Скилл Manus 2.0 активирован. Правила 4K кинематографии применены.
+                </div>
+              </div>
+
+              <!-- Command 2 -->
+              <div>
+                <div class="flex items-center gap-2 text-slate-400 mb-1">
+                  <span class="text-[#00F2FE] font-bold">❯</span>
+                  <span class="text-white" data-i18n="hero_mockup_cmd_2">claude "Создай 4K промо-ролик для маркетплейса TAJSEL"</span>
+                </div>
+                <div class="pl-4 text-cyan-300 border-l border-cyan-500/30 text-[11px] leading-relaxed" data-i18n="hero_mockup_res_2">
+                  Генерация раскадровки... 6 сцен синхронизированы • Рендер 60 FPS
+                </div>
+              </div>
+
+              <!-- Pipeline specs list -->
+              <div class="pt-3 border-t border-white/[0.06] space-y-2 text-[11px]">
+                <div class="flex justify-between text-slate-400">
+                  <span>Оптика камеры:</span>
+                  <span class="text-slate-200">Anamorphic 35mm f/1.8</span>
+                </div>
+                <div class="flex justify-between text-slate-400">
+                  <span>Цветокоррекция:</span>
+                  <span class="text-slate-200">Arri Alexa Cinematic LUT</span>
+                </div>
+                <div class="flex justify-between text-slate-400">
+                  <span>Модель синтеза:</span>
+                  <span class="text-[#00F2FE]">Claude 3.7 + Kling/Runway API</span>
+                </div>
+              </div>
+
+              <!-- Action button inside terminal -->
+              <div class="pt-2">
+                <a href="https://www.instagram.com/reel/DeWHDoaMqoc/?exln=MXY1cmIya3R3bmZiMg==" target="_blank" rel="noopener noreferrer" class="w-full py-2.5 px-3 rounded-lg bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 text-slate-200 flex items-center justify-center gap-2 text-xs transition-colors">
+                  <img src="assets/icons/instagram.svg" class="w-4 h-4" alt="Instagram">
+                  <span data-i18n="hero_mockup_watch_reel">Смотреть в Instagram</span>
+                  <span class="icon-mask icon-arrow-right w-3.5 h-3.5 text-slate-400"></span>
+                </a>
+              </div>
+
+            </div>
+
+            <!-- Right Column: Video Preview Display (7 Cols) -->
+            <div class="lg:col-span-7 p-5 flex flex-col justify-between relative group">
+              
+              <!-- Video Frame Card -->
+              <div class="relative w-full aspect-video rounded-xl overflow-hidden border border-white/10 bg-slate-950 flex items-center justify-center shadow-inner">
+                
+                <!-- Simulated Cinematic Backdrop with Gradient Lighting -->
+                <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-cyan-900/40 via-slate-900 to-black"></div>
+                
+                <!-- Overlay Grid & Lens Flare effect -->
+                <div class="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(0,242,254,0.05)_50%,transparent_75%)] bg-[length:250%_250%] animate-pulse"></div>
+
+                <!-- Video HUD Elements -->
+                <div class="absolute top-3 left-3 z-10 flex items-center gap-2">
+                  <span class="px-2 py-0.5 rounded-md bg-black/60 backdrop-blur-md border border-white/10 text-[10px] font-mono text-[#00F2FE]">
+                    REC [00:45:12]
+                  </span>
+                  <span class="px-2 py-0.5 rounded-md bg-cyan-500/20 backdrop-blur-md border border-cyan-400/40 text-[10px] font-mono text-cyan-300">
+                    4K UHD • 60 FPS
+                  </span>
+                </div>
+
+                <div class="absolute top-3 right-3 z-10">
+                  <span class="px-2 py-0.5 rounded-md bg-black/60 backdrop-blur-md border border-white/10 text-[10px] font-mono text-emerald-400 flex items-center gap-1.5">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+                    SYNCED
+                  </span>
+                </div>
+
+                <!-- Center Interactive Play Button Trigger -->
+                <button type="button" data-open-demo class="relative z-20 w-16 h-16 rounded-full bg-[#00F2FE]/20 hover:bg-[#00F2FE]/30 border border-[#00F2FE] flex items-center justify-center text-white transition-all shadow-[0_0_30px_rgba(0,242,254,0.4)] group-hover:scale-110" aria-label="Воспроизвести демо видео">
+                  <div class="absolute inset-0 rounded-full border border-cyan-400 radar-ring"></div>
+                  <svg class="w-6 h-6 text-[#00F2FE] translate-x-0.5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M8 5v14l11-7z"></path>
+                  </svg>
+                </button>
+
+                <!-- Bottom Status Bar inside player -->
+                <div class="absolute bottom-3 left-3 right-3 z-10 flex items-center justify-between text-xs text-slate-300 px-3 py-2 rounded-lg bg-black/70 backdrop-blur-md border border-white/10">
+                  <div class="flex items-center gap-2">
+                    <!-- Audio Waveform Visualizer -->
+                    <div class="flex items-center gap-0.5 h-4">
+                      <span class="wave-bar w-0.5 bg-[#00F2FE] rounded-full"></span>
+                      <span class="wave-bar w-0.5 bg-[#00F2FE] rounded-full"></span>
+                      <span class="wave-bar w-0.5 bg-[#00F2FE] rounded-full"></span>
+                      <span class="wave-bar w-0.5 bg-[#00F2FE] rounded-full"></span>
+                      <span class="wave-bar w-0.5 bg-[#00F2FE] rounded-full"></span>
+                      <span class="wave-bar w-0.5 bg-[#00F2FE] rounded-full"></span>
+                    </div>
+                    <span class="font-mono text-[11px]" data-i18n="hero_mockup_badge_live">Готовый ролик • 4K Ultra HD</span>
+                  </div>
+                  
+                  <span class="font-mono text-[11px] text-[#00F2FE]" data-i18n="hero_mockup_duration">0:45 сек</span>
+                </div>
+
+              </div>
+
+              <!-- Metadata footer under preview -->
+              <div class="mt-4 flex items-center justify-between text-xs text-slate-400">
+                <span class="flex items-center gap-1.5">
+                  <span class="icon-mask icon-id text-[#00F2FE] w-3.5 h-3.5"></span>
+                  Автоматический экспорт для Instagram Reels / TikTok
+                </span>
+                <button type="button" data-open-demo class="text-[#00F2FE] hover:underline font-medium text-xs flex items-center gap-1">
+                  Смотреть демо <span class="icon-mask icon-arrow-right w-3 h-3 text-[#00F2FE]"></span>
+                </button>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       Stats / Social Proof (Статистика)
+       ========================================================================== -->
+  <section class="py-16 border-y border-white/[0.08] bg-[#060910]/80 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- 4 Core Metric Cards -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <!-- Stat 1 -->
+        <div class="glass-card glow-card-spotlight p-6 rounded-2xl relative">
+          <div class="flex items-center justify-between mb-4">
+            <span class="text-4xl sm:text-5xl font-extrabold text-white font-mono tracking-tight" data-i18n="stat_1_num">0</span>
+            <div class="w-10 h-10 rounded-xl bg-white/[0.04] border border-white/10 flex items-center justify-center">
+              <span class="icon-mask icon-eye text-[#00F2FE] w-5 h-5"></span>
+            </div>
+          </div>
+          <h3 class="text-base font-semibold text-white mb-1.5" data-i18n="stat_1_label">секунд съемки</h3>
+          <p class="text-xs text-slate-400 leading-relaxed" data-i18n="stat_1_desc">Никаких камер, света, штативов и десятков дублей.</p>
+        </div>
+
+        <!-- Stat 2 -->
+        <div class="glass-card glow-card-spotlight p-6 rounded-2xl relative">
+          <div class="flex items-center justify-between mb-4">
+            <span class="text-4xl sm:text-5xl font-extrabold text-[#00F2FE] font-mono tracking-tight" data-i18n="stat_2_num">1</span>
+            <div class="w-10 h-10 rounded-xl bg-cyan-400/10 border border-cyan-400/20 flex items-center justify-center">
+              <span class="icon-mask icon-code text-[#00F2FE] w-5 h-5"></span>
+            </div>
+          </div>
+          <h3 class="text-base font-semibold text-white mb-1.5" data-i18n="stat_2_label">промпт для запуска</h3>
+          <p class="text-xs text-slate-400 leading-relaxed" data-i18n="stat_2_desc">Claude Code берет на себя весь пайплайн продакшена.</p>
+        </div>
+
+        <!-- Stat 3 -->
+        <div class="glass-card glow-card-spotlight p-6 rounded-2xl relative">
+          <div class="flex items-center justify-between mb-4">
+            <span class="text-4xl sm:text-5xl font-extrabold text-white font-mono tracking-tight" data-i18n="stat_3_num">4K</span>
+            <div class="w-10 h-10 rounded-xl bg-white/[0.04] border border-white/10 flex items-center justify-center">
+              <span class="icon-mask icon-diamond text-[#00F2FE] w-5 h-5"></span>
+            </div>
+          </div>
+          <h3 class="text-base font-semibold text-white mb-1.5" data-i18n="stat_3_label">качество Ultra HD</h3>
+          <p class="text-xs text-slate-400 leading-relaxed" data-i18n="stat_3_desc">Кинематографичный битрейт, плавный 60fps и фотореализм.</p>
+        </div>
+
+        <!-- Stat 4 -->
+        <div class="glass-card glow-card-spotlight p-6 rounded-2xl relative">
+          <div class="flex items-center justify-between mb-4">
+            <span class="text-4xl sm:text-5xl font-extrabold text-emerald-400 font-mono tracking-tight" data-i18n="stat_4_num">100%</span>
+            <div class="w-10 h-10 rounded-xl bg-emerald-400/10 border border-emerald-400/20 flex items-center justify-center">
+              <span class="icon-mask icon-lightning-fast text-emerald-400 w-5 h-5"></span>
+            </div>
+          </div>
+          <h3 class="text-base font-semibold text-white mb-1.5" data-i18n="stat_4_label">автономия</h3>
+          <p class="text-xs text-slate-400 leading-relaxed" data-i18n="stat_4_desc">Скилл Manus 2.0 генерирует сцены по готовым правилам.</p>
+        </div>
+
+      </div>
+
+      <!-- AI Ecosystem Strip -->
+      <div class="mt-14 pt-10 border-t border-white/[0.06] text-center">
+        <p class="text-xs uppercase tracking-widest font-mono text-slate-400 mb-6" data-i18n="ai_strip_title">
+          Экосистема совместимости и поддерживаемые генераторы:
+        </p>
+
+        <!-- Brand SVGs Row -->
+        <div class="flex flex-wrap items-center justify-center gap-8 sm:gap-12 opacity-75 hover:opacity-100 transition-opacity">
+          
+          <div class="flex items-center gap-2 group cursor-default">
+            <img src="assets/icons/claude.svg" class="w-6 h-6 object-contain" alt="Claude">
+            <span class="text-sm font-semibold text-slate-300 group-hover:text-white transition-colors">Claude Code</span>
+          </div>
+
+          <div class="flex items-center gap-2 group cursor-default">
+            <div class="w-6 h-6 rounded-md bg-purple-500/20 flex items-center justify-center text-purple-300 font-mono font-bold text-xs">M</div>
+            <span class="text-sm font-semibold text-slate-300 group-hover:text-white transition-colors">Manus 2.0</span>
+          </div>
+
+          <div class="flex items-center gap-2 group cursor-default">
+            <img src="assets/icons/kling.svg" class="w-6 h-6 object-contain" alt="Kling">
+            <span class="text-sm font-semibold text-slate-300 group-hover:text-white transition-colors">Kling AI</span>
+          </div>
+
+          <div class="flex items-center gap-2 group cursor-default">
+            <img src="assets/icons/runway.svg" class="w-6 h-6 object-contain" alt="Runway">
+            <span class="text-sm font-semibold text-slate-300 group-hover:text-white transition-colors">Runway Gen-3</span>
+          </div>
+
+          <div class="flex items-center gap-2 group cursor-default">
+            <img src="assets/icons/midjourney.svg" class="w-6 h-6 object-contain" alt="Midjourney">
+            <span class="text-sm font-semibold text-slate-300 group-hover:text-white transition-colors">Midjourney</span>
+          </div>
+
+          <div class="flex items-center gap-2 group cursor-default">
+            <img src="assets/icons/elevenlabs.svg" class="w-6 h-6 object-contain" alt="ElevenLabs">
+            <span class="text-sm font-semibold text-slate-300 group-hover:text-white transition-colors">ElevenLabs</span>
+          </div>
+
+          <div class="flex items-center gap-2 group cursor-default">
+            <img src="assets/icons/deepseek.svg" class="w-6 h-6 object-contain" alt="DeepSeek">
+            <span class="text-sm font-semibold text-slate-300 group-hover:text-white transition-colors">DeepSeek</span>
+          </div>
+
+          <div class="flex items-center gap-2 group cursor-default">
+            <img src="assets/icons/capcut.svg" class="w-6 h-6 object-contain" alt="CapCut">
+            <span class="text-sm font-semibold text-slate-300 group-hover:text-white transition-colors">CapCut 4K</span>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       Curriculum / Program (Программа курса - 3 шага)
+       ========================================================================== -->
+  <section id="curriculum" class="py-24 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-400/10 border border-cyan-400/20 text-[#00F2FE] text-xs font-mono uppercase tracking-wider mb-4">
+          <span class="icon-mask icon-code w-3.5 h-3.5"></span>
+          <span data-i18n="curriculum_badge">ПОШАГОВЫЙ ПЛАН</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight mb-4" data-i18n="curriculum_title">
+          Программа мини-курса: От нуля до 4K за 3 шага
+        </h2>
+        <p class="text-slate-400 text-sm sm:text-base leading-relaxed" data-i18n="curriculum_subtitle">
+          Структурированный материал без воды. Каждый шаг подкреплен скринкастами и готовыми файлами конфигурации.
+        </p>
+      </div>
+
+      <!-- 3 Program Cards Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <!-- Step 1 Card -->
+        <div class="glass-card glow-card-spotlight p-8 rounded-2xl flex flex-col justify-between relative group">
+          <div>
+            <div class="flex items-center justify-between mb-6">
+              <span class="px-3 py-1 rounded-lg bg-white/[0.04] border border-white/10 font-mono text-xs font-bold text-[#00F2FE]" data-i18n="step_1_tag">
+                ШАГ 01
+              </span>
+              <span class="text-xs font-mono text-slate-400" data-i18n="step_1_time">Модуль 1</span>
+            </div>
+
+            <h3 class="text-xl font-bold text-white mb-3" data-i18n="step_1_title">
+              Установка и настройка Claude Code
+            </h3>
+            
+            <p class="text-sm text-slate-300 font-medium mb-6 leading-relaxed" data-i18n="step_1_desc">
+              Разбор терминала, окружения и подгрузка ключей.
+            </p>
+
+            <!-- Bullet list -->
+            <ul class="space-y-3 text-xs text-slate-400 mb-6">
+              <li class="flex items-start gap-2.5">
+                <span class="icon-mask icon-check text-[#00F2FE] w-4 h-4 mt-0.5"></span>
+                <span data-i18n="step_1_p1">Установка Node.js и глобального CLI Claude Code через один терминал.</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="icon-mask icon-check text-[#00F2FE] w-4 h-4 mt-0.5"></span>
+                <span data-i18n="step_1_p2">Безопасное хранение API-ключей Anthropic без риска утечек.</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="icon-mask icon-check text-[#00F2FE] w-4 h-4 mt-0.5"></span>
+                <span data-i18n="step_1_p3">Проверка работоспособности среды и запуск первого базового диалога.</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Mini Terminal Snippet -->
+          <div class="mt-4 p-3 rounded-xl bg-black/60 border border-white/[0.08] font-mono text-[11px] text-slate-300">
+            <div class="text-slate-500 mb-1">// Установка CLI в один клик:</div>
+            <div class="text-emerald-400">npm i -g @anthropic-ai/claude-code</div>
+          </div>
+        </div>
+
+        <!-- Step 2 Card (Featured / Highlighted) -->
+        <div class="glass-card glow-card-spotlight p-8 rounded-2xl flex flex-col justify-between relative group border-cyan-400/30 shadow-[0_0_30px_rgba(0,242,254,0.1)]">
+          <div class="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-0.5 rounded-full bg-cyan-400 text-slate-950 font-bold text-[10px] uppercase tracking-wider">
+            Ядро технологии
+          </div>
+
+          <div>
+            <div class="flex items-center justify-between mb-6">
+              <span class="px-3 py-1 rounded-lg bg-cyan-400/20 border border-cyan-400/40 font-mono text-xs font-bold text-cyan-300" data-i18n="step_2_tag">
+                ШАГ 02
+              </span>
+              <span class="text-xs font-mono text-slate-400" data-i18n="step_2_time">Модуль 2</span>
+            </div>
+
+            <h3 class="text-xl font-bold text-white mb-3" data-i18n="step_2_title">
+              Интеграция скилла Manus 2.0
+            </h3>
+            
+            <p class="text-sm text-slate-300 font-medium mb-6 leading-relaxed" data-i18n="step_2_desc">
+              Установка .claude/skills, проверка через /skills и настройка правил.
+            </p>
+
+            <!-- Bullet list -->
+            <ul class="space-y-3 text-xs text-slate-400 mb-6">
+              <li class="flex items-start gap-2.5">
+                <span class="icon-mask icon-check text-[#00F2FE] w-4 h-4 mt-0.5"></span>
+                <span data-i18n="step_2_p1">Распаковка структуры скилла в системную директорию .claude/skills.</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="icon-mask icon-check text-[#00F2FE] w-4 h-4 mt-0.5"></span>
+                <span data-i18n="step_2_p2">Верификация скилла в CLI Claude Code через системную команду /skills.</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="icon-mask icon-check text-[#00F2FE] w-4 h-4 mt-0.5"></span>
+                <span data-i18n="step_2_p3">Тонкая настройка правил: режиссура, типы оптики (35mm/85mm), свет и темп.</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Mini Terminal Snippet -->
+          <div class="mt-4 p-3 rounded-xl bg-black/60 border border-white/[0.08] font-mono text-[11px] text-slate-300">
+            <div class="text-slate-500 mb-1">// Проверка активации скилла:</div>
+            <div class="text-cyan-300">claude /skills status -> Manus 2.0 [OK]</div>
+          </div>
+        </div>
+
+        <!-- Step 3 Card -->
+        <div class="glass-card glow-card-spotlight p-8 rounded-2xl flex flex-col justify-between relative group">
+          <div>
+            <div class="flex items-center justify-between mb-6">
+              <span class="px-3 py-1 rounded-lg bg-white/[0.04] border border-white/10 font-mono text-xs font-bold text-[#00F2FE]" data-i18n="step_3_tag">
+                ШАГ 03
+              </span>
+              <span class="text-xs font-mono text-slate-400" data-i18n="step_3_time">Модуль 3</span>
+            </div>
+
+            <h3 class="text-xl font-bold text-white mb-3" data-i18n="step_3_title">
+              Генерация и монетизация
+            </h3>
+            
+            <p class="text-sm text-slate-300 font-medium mb-6 leading-relaxed" data-i18n="step_3_desc">
+              Написание промптов на русском/тоҷикӣ, рендеринг в 4K и запуск продаж.
+            </p>
+
+            <!-- Bullet list -->
+            <ul class="space-y-3 text-xs text-slate-400 mb-6">
+              <li class="flex items-start gap-2.5">
+                <span class="icon-mask icon-check text-[#00F2FE] w-4 h-4 mt-0.5"></span>
+                <span data-i18n="step_3_p1">Формула продающих промптов для коммерческих брендов и товаров.</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="icon-mask icon-check text-[#00F2FE] w-4 h-4 mt-0.5"></span>
+                <span data-i18n="step_3_p2">Бесшовный апскейл до 4K 60FPS и синхронизация AI-звука и озвучки.</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="icon-mask icon-check text-[#00F2FE] w-4 h-4 mt-0.5"></span>
+                <span data-i18n="step_3_p3">Схемы заработка: продажа роликов для Instagram Reels, TikTok и TAJSEL.</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Mini Terminal Snippet -->
+          <div class="mt-4 p-3 rounded-xl bg-black/60 border border-white/[0.08] font-mono text-[11px] text-slate-300">
+            <div class="text-slate-500 mb-1">// Финальный рендеринг:</div>
+            <div class="text-purple-400">render: 3840x2160@60fps • 100% Monetized</div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       Target Audience ("Для кого")
+       ========================================================================== -->
+  <section id="audience" class="py-24 border-t border-white/[0.08] bg-[#070B14]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.04] border border-white/10 text-slate-300 text-xs font-mono uppercase tracking-wider mb-4">
+          <span class="icon-mask icon-overview w-3.5 h-3.5 text-[#00F2FE]"></span>
+          <span data-i18n="audience_badge">ДЛЯ КОГО ЭТОТ КУРС</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight mb-4" data-i18n="audience_title">
+          Кому мини-курс сэкономит месяцы проб и ошибок
+        </h2>
+        <p class="text-slate-400 text-sm sm:text-base leading-relaxed" data-i18n="audience_subtitle">
+          Технология подходит как для создания собственного контента, так и для заработка на услугах.
+        </p>
+      </div>
+
+      <!-- 4 Audience Grid Cards -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <!-- Card 1 -->
+        <div class="glass-card glow-card-spotlight p-6 rounded-2xl">
+          <div class="w-12 h-12 rounded-xl bg-white/[0.04] border border-white/10 flex items-center justify-center mb-6">
+            <img src="assets/icons/instagram.svg" class="w-6 h-6" alt="Creators">
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2.5" data-i18n="aud_1_title">Контент-мейкеры и блогеры</h3>
+          <p class="text-xs text-slate-400 leading-relaxed" data-i18n="aud_1_desc">
+            Генерируйте вирусные Reels, Shorts и TikTok без съемок своего лица, покупки дорогого света и микрофонов.
+          </p>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="glass-card glow-card-spotlight p-6 rounded-2xl">
+          <div class="w-12 h-12 rounded-xl bg-cyan-400/10 border border-cyan-400/20 flex items-center justify-center mb-6">
+            <span class="icon-mask icon-cart text-[#00F2FE] w-6 h-6"></span>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2.5" data-i18n="aud_2_title">Селлеры маркетплейсов и e-commerce</h3>
+          <p class="text-xs text-slate-400 leading-relaxed" data-i18n="aud_2_desc">
+            Создавайте динамичные видеообложки карточек товаров для TAJSEL, Wildberries и Instagram магазинов, поднимая конверсию в разы.
+          </p>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="glass-card glow-card-spotlight p-6 rounded-2xl">
+          <div class="w-12 h-12 rounded-xl bg-white/[0.04] border border-white/10 flex items-center justify-center mb-6">
+            <span class="icon-mask icon-wallet text-[#00F2FE] w-6 h-6"></span>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2.5" data-i18n="aud_3_title">Фрилансеры и digital-агентства</h3>
+          <p class="text-xs text-slate-400 leading-relaxed" data-i18n="aud_3_desc">
+            Продавайте создание ИИ-роликов клиентам от $30 до $100 за штуку при себестоимости в считанные центы и затратах времени в 5 минут.
+          </p>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="glass-card glow-card-spotlight p-6 rounded-2xl">
+          <div class="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center mb-6">
+            <span class="icon-mask icon-rocket text-purple-400 w-6 h-6"></span>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2.5" data-i18n="aud_4_title">Новички без опыта монтажа</h3>
+          <p class="text-xs text-slate-400 leading-relaxed" data-i18n="aud_4_desc">
+            Вам не нужно изучать сложный Premiere Pro или After Effects — Claude Code берет нарезку и эффекты на себя.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       Value / Product Showcase (Что вы получаете)
+       ========================================================================== -->
+  <section class="py-24 relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-400/10 border border-cyan-400/20 text-[#00F2FE] text-xs font-mono uppercase tracking-wider mb-4">
+          <span class="icon-mask icon-package w-3.5 h-3.5"></span>
+          <span data-i18n="value_badge">КОМПЛЕКТАЦИЯ КУРСА</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight mb-4" data-i18n="value_title">
+          Что вы получаете сразу после покупки
+        </h2>
+        <p class="text-slate-400 text-sm sm:text-base leading-relaxed" data-i18n="value_subtitle">
+          Полный цифровой арсенал, который останется у вас навсегда с бесплатными обновлениями.
+        </p>
+      </div>
+
+      <!-- 2-Column Showcase: Deliverables & Code Inspector -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        
+        <!-- Left: 4 Checked Deliverables (7 Cols) -->
+        <div class="lg:col-span-7 space-y-4">
+          
+          <!-- Item 1 -->
+          <div class="glass-card p-6 rounded-2xl flex items-start gap-4">
+            <div class="w-10 h-10 rounded-xl bg-cyan-400/10 border border-cyan-400/30 flex items-center justify-center shrink-0 mt-1">
+              <span class="icon-mask icon-check text-[#00F2FE] w-5 h-5"></span>
+            </div>
+            <div>
+              <h3 class="text-base font-bold text-white mb-1.5" data-i18n="val_1_title">
+                Полный доступ к видеоурокам мини-курса
+              </h3>
+              <p class="text-xs sm:text-sm text-slate-400 leading-relaxed" data-i18n="val_1_desc">
+                Пошаговые HD видеоуроки с демонстрацией экрана: от первой строчки в терминале до готового видео в галерее.
+              </p>
+            </div>
+          </div>
+
+          <!-- Item 2 -->
+          <div class="glass-card p-6 rounded-2xl flex items-start gap-4">
+            <div class="w-10 h-10 rounded-xl bg-cyan-400/10 border border-cyan-400/30 flex items-center justify-center shrink-0 mt-1">
+              <span class="icon-mask icon-code text-[#00F2FE] w-5 h-5"></span>
+            </div>
+            <div>
+              <h3 class="text-base font-bold text-white mb-1.5" data-i18n="val_2_title">
+                Готовый файл ИИ-скилла Manus 2.0 (SKILL.md)
+              </h3>
+              <p class="text-xs sm:text-sm text-slate-400 leading-relaxed" data-i18n="val_2_desc">
+                Эксклюзивный файл конфигурации с прописанной архитектурой автономного агента, режиссерскими правилами и форматами.
+              </p>
+            </div>
+          </div>
+
+          <!-- Item 3 -->
+          <div class="glass-card p-6 rounded-2xl flex items-start gap-4">
+            <div class="w-10 h-10 rounded-xl bg-cyan-400/10 border border-cyan-400/30 flex items-center justify-center shrink-0 mt-1">
+              <span class="icon-mask icon-lightning text-[#00F2FE] w-5 h-5"></span>
+            </div>
+            <div>
+              <h3 class="text-base font-bold text-white mb-1.5" data-i18n="val_3_title">
+                Набор рабочих промптов для любого сайта/маркетплейса
+              </h3>
+              <p class="text-xs sm:text-sm text-slate-400 leading-relaxed" data-i18n="val_3_desc">
+                Библиотека проверенных промптов: продуктовые ролики, кинематографичный сторителлинг, реклама одежды, техники и авто.
+              </p>
+            </div>
+          </div>
+
+          <!-- Item 4 -->
+          <div class="glass-card p-6 rounded-2xl flex items-start gap-4">
+            <div class="w-10 h-10 rounded-xl bg-cyan-400/10 border border-cyan-400/30 flex items-center justify-center shrink-0 mt-1">
+              <span class="icon-mask icon-headset text-[#00F2FE] w-5 h-5"></span>
+            </div>
+            <div>
+              <h3 class="text-base font-bold text-white mb-1.5" data-i18n="val_4_title">
+                Закрытый чат поддержки для участников
+              </h3>
+              <p class="text-xs sm:text-sm text-slate-400 leading-relaxed" data-i18n="val_4_desc">
+                Прямой доступ к комьюнити единомышленников, разбор ваших роликов, помощь по настройке терминала и ответы на вопросы.
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right: Interactive SKILL.md Code Inspector (5 Cols) -->
+        <div class="lg:col-span-5 glass-card-static rounded-2xl border border-white/10 overflow-hidden shadow-2xl">
+          
+          <!-- Inspector Header -->
+          <div class="px-4 py-3 bg-[#0D1322] border-b border-white/[0.08] flex items-center justify-between">
+            <div class="flex items-center gap-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-slate-600"></span>
+              <span class="font-mono text-xs text-slate-300 font-semibold">SKILL.md</span>
+            </div>
+
+            <!-- Copy Code Button -->
+            <button id="copySkillCodeBtn" type="button" class="px-2.5 py-1 rounded-md bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 text-xs font-mono text-[#00F2FE] flex items-center gap-1.5 transition-colors">
+              <span class="icon-mask icon-copy w-3.5 h-3.5"></span>
+              <span data-i18n="skill_copy_btn">Скопировать</span>
+            </button>
+          </div>
+
+          <!-- Code View -->
+          <div class="p-4 bg-[#060910] font-mono text-[11px] leading-relaxed overflow-x-auto text-slate-300">
+            <pre id="skillCodeSnippet"><code>---
+name: manus-cinematic-video
+version: 2.0.0
+description: Autonomous 4K Video Director Skill for Claude Code
+engine: claude-3-7-sonnet / opus
+rules:
+  resolution: "3840x2160 (4K UHD)"
+  aspect_ratios: ["9:16", "16:9"]
+  frame_rate: "60 FPS"
+  camera:
+    lenses: ["35mm f/1.4", "85mm f/1.8"]
+    movements: ["hyperlapse", "fpv-orbit", "push-in"]
+  audio:
+    sound_design: "ambient-cinematic + foley"
+    voiceover_languages: ["ru", "tj", "en"]
+pipeline:
+  step1: "scene_storyboard_synthesis"
+  step2: "prompt_optimization_kling_runway"
+  step3: "temporal_consistency_lock"
+  step4: "4k_upscale_and_audio_render"
+---</code></pre>
+          </div>
+
+          <!-- Footer Metadata -->
+          <div class="px-4 py-2.5 bg-[#0D1322] border-t border-white/[0.06] flex items-center justify-between text-[10px] font-mono text-slate-400">
+            <span>Size: 1.4 KB • UTF-8</span>
+            <span class="text-emerald-400 flex items-center gap-1">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+              Valid Manus 2.0 Schema
+            </span>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       CTA & Payment Block (Блок покупки и связи с TAJSEL)
+       ========================================================================== -->
+  <section id="pricing" class="py-24 relative overflow-hidden bg-gradient-to-b from-[#090D16] via-[#0D1426] to-[#090D16] border-y border-white/[0.08]">
+    
+    <!-- Background Radial Accent -->
+    <div class="absolute inset-0 flex items-center justify-center pointer-events-none opacity-20">
+      <div class="w-[600px] h-[600px] bg-[#00F2FE] rounded-full blur-[160px]"></div>
+    </div>
+
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      
+      <!-- Checkout Box Card -->
+      <div class="glass-card-static rounded-3xl p-8 sm:p-12 border border-cyan-400/30 shadow-[0_0_50px_rgba(0,242,254,0.15)] text-center relative">
+        
+        <!-- Top Badge -->
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-cyan-400/10 border border-cyan-400/30 text-cyan-300 text-xs font-mono uppercase tracking-wider mb-6">
+          <span class="icon-mask icon-diamond text-[#00F2FE] w-3.5 h-3.5"></span>
+          <span data-i18n="cta_badge">СПЕЦИАЛЬНОЕ ПРЕДЛОЖЕНИЕ</span>
+        </div>
+
+        <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight mb-4" data-i18n="cta_title">
+          Начни создавать ИИ-видео уже сегодня
+        </h2>
+        
+        <p class="text-slate-300 text-sm sm:text-base max-w-xl mx-auto mb-8" data-i18n="cta_subtitle">
+          Безопасная сделка и моментальное получение через маркетплейс TAJSEL.
+        </p>
+
+        <!-- Price Display -->
+        <div class="flex items-center justify-center gap-4 mb-8">
+          <div class="text-slate-400 line-through text-2xl sm:text-3xl font-mono font-medium" id="priceOldDisplay">
+            $15
+          </div>
+          <div class="text-5xl sm:text-6xl font-black text-white font-mono tracking-tight text-gradient-cyan" id="priceCurrentDisplay">
+            $5
+          </div>
+          <span class="px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold uppercase tracking-wider" data-i18n="price_save">
+            Скидка 67%
+          </span>
+        </div>
+
+        <!-- Direct CTA Action Button to TAJSEL Product (https://tajsel.tj/ru/product/103) -->
+        <div class="max-w-md mx-auto mb-8">
+          <a href="https://tajsel.tj/ru/product/103" target="_blank" rel="noopener noreferrer" class="w-full glow-cyan-btn text-slate-950 font-extrabold text-lg py-5 px-8 rounded-2xl flex items-center justify-center gap-3 transition-transform hover:scale-[1.02] shadow-[0_0_35px_rgba(0,242,254,0.4)]">
+            <span class="icon-mask icon-cart text-slate-950 w-6 h-6"></span>
+            <span id="ctaBtnText" data-i18n="cta_btn">Купить курс на TAJSEL</span>
+            <span class="icon-mask icon-arrow-right text-slate-950 w-5 h-5"></span>
+          </a>
+        </div>
+
+        <!-- Guarantee & Security Details -->
+        <div id="guarantees" class="pt-6 border-t border-white/[0.08] text-center space-y-4">
+          
+          <div class="flex flex-wrap items-center justify-center gap-4 text-xs text-slate-300">
+            <span class="flex items-center gap-1.5">
+              <span class="icon-mask icon-check-circle text-emerald-400 w-4 h-4"></span>
+              <span data-i18n="guarantee_text">Идемпотентность платежей, escrow-защита и поддержка 24/7</span>
+            </span>
+          </div>
+
+          <p class="text-xs text-slate-400 max-w-lg mx-auto leading-relaxed" data-i18n="guarantee_sub">
+            После оплаты на маркетплейсе ссылка на обучающие материалы и файл скилла открывается мгновенно в личном кабинете.
+          </p>
+
+          <!-- Payment Methods Icons Row -->
+          <div class="flex flex-wrap items-center justify-center gap-6 pt-2 opacity-80">
+            <img src="assets/icons/alif.svg" class="h-6 w-auto" alt="Alif">
+            <img src="assets/icons/visa.svg" class="h-5 w-auto" alt="Visa">
+            <img src="assets/icons/mastercard.svg" class="h-5 w-auto" alt="Mastercard">
+            <img src="assets/icons/yoomoney.svg" class="h-5 w-auto" alt="YooMoney">
+          </div>
+
+        </div>
+
+        <!-- Personal Support Link (@vvewrix) -->
+        <div class="mt-8 pt-6 border-t border-white/[0.06] flex flex-col sm:flex-row items-center justify-center gap-3 text-xs text-slate-300">
+          <span data-i18n="direct_help_title">Остались вопросы перед покупкой?</span>
+          <a href="https://t.me/vvewrix" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 text-[#00F2FE] font-medium transition-colors">
+            <img src="assets/icons/telegram.svg" class="w-4 h-4" alt="Telegram">
+            <span data-i18n="direct_help_action">Написать автору в Telegram (@vvewrix)</span>
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       FAQ Section
+       ========================================================================== -->
+  <section class="py-20 border-b border-white/[0.08]">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center mb-12">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.04] border border-white/10 text-slate-300 text-xs font-mono uppercase tracking-wider mb-3">
+          <span class="icon-mask icon-id w-3.5 h-3.5 text-[#00F2FE]"></span>
+          <span data-i18n="faq_badge">FAQ</span>
+        </div>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-white" data-i18n="faq_title">
+          Часто задаваемые вопросы
+        </h2>
+      </div>
+
+      <div class="space-y-4">
+        
+        <!-- FAQ 1 -->
+        <div class="glass-card p-6 rounded-2xl">
+          <h3 class="text-base font-bold text-white mb-2" data-i18n="faq_q1">
+            Нужен ли мощный компьютер или видеокарта?
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed" data-i18n="faq_a1">
+            Нет! Все вычисления и генерации происходят на серверах ИИ в облаке. Вам подойдет даже слабый рабочий ноутбук или ПК с Windows, macOS или Linux.
+          </p>
+        </div>
+
+        <!-- FAQ 2 -->
+        <div class="glass-card p-6 rounded-2xl">
+          <h3 class="text-base font-bold text-white mb-2" data-i18n="faq_q2">
+            Сколько стоит использование Claude Code?
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed" data-i18n="faq_a2">
+            При регистрации в Anthropic даются приветственные бесплатные кредиты, которых хватает на первые десятки роликов. Себестоимость одного видео через API составляет менее $0.05.
+          </p>
+        </div>
+
+        <!-- FAQ 3 -->
+        <div class="glass-card p-6 rounded-2xl">
+          <h3 class="text-base font-bold text-white mb-2" data-i18n="faq_q3">
+            Как я получу курс после оплаты на TAJSEL?
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed" data-i18n="faq_a3">
+            Маркетплейс TAJSEL работает по системе моментальной цифровой доставки. Сразу после подтверждения оплаты файл курса, ссылки и доступ в закрытый чат будут доступны в вашем кабинете покупателя.
+          </p>
+        </div>
+
+        <!-- FAQ 4 -->
+        <div class="glass-card p-6 rounded-2xl">
+          <h3 class="text-base font-bold text-white mb-2" data-i18n="faq_q4">
+            Работают ли промпты на русском и таджикском языках?
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed" data-i18n="faq_a4">
+            Да! Скилл Manus 2.0 полностью мультиязычен. Вы можете описывать задачу на русском или тоҷикӣ, и Claude Code самостоятельно преобразует ее в профессиональные кинематографические директивы.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       Footer (Подвал)
+       ========================================================================== -->
+  <footer class="py-16 bg-[#060910] text-slate-400 text-xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-10 pb-12 border-b border-white/[0.08]">
+        
+        <!-- Brand & Partnership -->
+        <div class="md:col-span-2 space-y-4">
+          <div class="flex items-center gap-3">
+            <span class="text-2xl font-bold tracking-tight text-white flex items-center">
+              mcode<span class="text-[#00F2FE] drop-shadow-[0_0_8px_#00F2FE] text-3xl leading-none">.</span>
+            </span>
+            <span class="text-slate-600">×</span>
+            <span class="text-lg font-bold text-slate-300 tracking-wider">TAJSEL</span>
+          </div>
+
+          <p class="text-slate-400 max-w-sm leading-relaxed" data-i18n="footer_desc">
+            Практический мини-курс по созданию кинематографичных ИИ-видео с помощью Claude Code и скилла Manus 2.0.
+          </p>
+
+          <div class="flex items-center gap-3 pt-2">
+            <a href="https://t.me/MCode_Academy" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-lg bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 flex items-center justify-center text-slate-300 hover:text-white transition-colors" aria-label="Telegram Channel">
+              <img src="assets/icons/telegram.svg" class="w-4 h-4" alt="Telegram">
+            </a>
+            <a href="https://www.instagram.com/reel/DeWHDoaMqoc/?exln=MXY1cmIya3R3bmZiMg==" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-lg bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 flex items-center justify-center text-slate-300 hover:text-white transition-colors" aria-label="Instagram Video">
+              <img src="assets/icons/instagram.svg" class="w-4 h-4" alt="Instagram">
+            </a>
+            <a href="https://t.me/vvewrix" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-lg bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 flex items-center justify-center text-slate-300 hover:text-white transition-colors" aria-label="Support Chat">
+              <span class="icon-mask icon-headset text-slate-300 hover:text-white w-4 h-4"></span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Quick Navigation -->
+        <div>
+          <h4 class="font-mono text-xs uppercase tracking-wider text-slate-200 font-semibold mb-4" data-i18n="footer_links_title">
+            Навигация
+          </h4>
+          <ul class="space-y-2.5">
+            <li><a href="#about" class="hover:text-white transition-colors" data-i18n="nav_about">О курсе</a></li>
+            <li><a href="#curriculum" class="hover:text-white transition-colors" data-i18n="nav_curriculum">Программа</a></li>
+            <li><a href="#audience" class="hover:text-white transition-colors" data-i18n="nav_audience">Для кого</a></li>
+            <li><a href="#guarantees" class="hover:text-white transition-colors" data-i18n="nav_guarantees">Гарантии</a></li>
+            <li><a href="#pricing" class="hover:text-white transition-colors" data-i18n="nav_buy">Купить курс</a></li>
+          </ul>
+        </div>
+
+        <!-- Community & Links -->
+        <div>
+          <h4 class="font-mono text-xs uppercase tracking-wider text-slate-200 font-semibold mb-4" data-i18n="footer_contacts_title">
+            Поддержка и сообщество
+          </h4>
+          <ul class="space-y-2.5">
+            <li>
+              <a href="https://t.me/MCode_Academy" target="_blank" rel="noopener noreferrer" class="hover:text-[#00F2FE] transition-colors flex items-center gap-2">
+                <img src="assets/icons/telegram.svg" class="w-3.5 h-3.5" alt="TG">
+                <span data-i18n="footer_tg_channel">Telegram-канал MCode</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://t.me/vvewrix" target="_blank" rel="noopener noreferrer" class="hover:text-[#00F2FE] transition-colors flex items-center gap-2">
+                <span class="icon-mask icon-headset text-slate-400 w-3.5 h-3.5"></span>
+                <span data-i18n="footer_tg_support">Личный чат автора (@vvewrix)</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://tajsel.tj/ru/product/103" target="_blank" rel="noopener noreferrer" class="hover:text-[#00F2FE] transition-colors flex items-center gap-2">
+                <span class="icon-mask icon-link text-slate-400 w-3.5 h-3.5"></span>
+                <span data-i18n="footer_tajsel_product">Товар на TAJSEL</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.instagram.com/reel/DeWHDoaMqoc/?exln=MXY1cmIya3R3bmZiMg==" target="_blank" rel="noopener noreferrer" class="hover:text-[#00F2FE] transition-colors flex items-center gap-2">
+                <img src="assets/icons/instagram.svg" class="w-3.5 h-3.5" alt="Instagram">
+                <span>Видео в Instagram (Reel)</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Copyright -->
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-slate-500 text-[11px]">
+        <p>© 2026 mcode. All rights reserved.</p>
+        <p data-i18n="footer_rights">Все права защищены. Образовательная платформа mcode в партнерстве с TAJSEL.</p>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       Interactive Video Modal
+       ========================================================================== -->
+  <div id="videoDemoModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-xl modal-backdrop">
+    
+    <div class="glass-card-static rounded-3xl border border-white/20 max-w-2xl w-full p-6 sm:p-8 modal-content relative shadow-2xl">
+      
+      <!-- Close Button -->
+      <button type="button" data-close-demo class="absolute top-5 right-5 p-2 rounded-xl bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 text-slate-400 hover:text-white transition-colors" aria-label="Закрыть">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+
+      <!-- Modal Title -->
+      <div class="mb-6">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-400/10 border border-cyan-400/20 text-[#00F2FE] text-xs font-mono mb-2">
+          <span class="icon-mask icon-lightning w-3 h-3"></span>
+          DEMO PREVIEW
+        </div>
+        <h3 class="text-xl sm:text-2xl font-bold text-white" data-i18n="modal_title">
+          Демонстрация ИИ-видео
+        </h3>
+        <p class="text-xs sm:text-sm text-slate-400 mt-1" data-i18n="modal_subtitle">
+          Пример ролика, сгенерированного за 1 минуту по технологии мини-курса
+        </p>
+      </div>
+
+      <!-- Video Card Preview Frame -->
+      <div class="w-full aspect-video rounded-2xl bg-black border border-white/10 relative overflow-hidden flex flex-col items-center justify-center mb-6">
+        <div class="absolute inset-0 bg-gradient-to-t from-black via-slate-950 to-cyan-950/40"></div>
+        
+        <div class="relative z-10 text-center p-6 space-y-3">
+          <div class="w-14 h-14 rounded-full bg-gradient-to-tr from-cyan-500 to-blue-500 flex items-center justify-center mx-auto shadow-[0_0_25px_rgba(0,242,254,0.5)]">
+            <svg class="w-6 h-6 text-slate-950 translate-x-0.5" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M8 5v14l11-7z"></path>
+            </svg>
+          </div>
+          <div class="text-sm font-semibold text-white">Instagram Reel Video</div>
+          <p class="text-xs text-slate-400 max-w-sm">
+            Оригинальный ролик загружен в высоком качестве в Instagram. Нажмите кнопку ниже, чтобы открыть и посмотреть в полном разрешении.
+          </p>
+        </div>
+
+        <div class="absolute bottom-3 left-4 right-4 flex items-center justify-between text-[11px] font-mono text-slate-400">
+          <span data-i18n="modal_meta_1">Движок: Claude Code + Manus 2.0</span>
+          <span class="text-[#00F2FE]" data-i18n="modal_meta_2">4K 60FPS Вертикальное видео</span>
+        </div>
+      </div>
+
+      <!-- Action Button inside Modal -->
+      <div class="flex flex-col sm:flex-row items-center justify-end gap-3">
+        <button type="button" data-close-demo class="w-full sm:w-auto px-5 py-3 rounded-xl bg-white/[0.04] hover:bg-white/[0.08] text-slate-300 text-xs font-semibold" data-i18n="modal_close">
+          Закрыть
+        </button>
+
+        <a href="https://www.instagram.com/reel/DeWHDoaMqoc/?exln=MXY1cmIya3R3bmZiMg==" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto glow-cyan-btn text-slate-950 font-bold text-xs sm:text-sm px-6 py-3 rounded-xl flex items-center justify-center gap-2">
+          <img src="assets/icons/instagram.svg" class="w-4 h-4" alt="Instagram">
+          <span data-i18n="modal_open_instagram">Открыть видео в Instagram (Reels)</span>
+          <span class="icon-mask icon-arrow-right text-slate-950 w-3.5 h-3.5"></span>
+        </a>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- Copy Toast Notification -->
+  <div id="copyToast" class="fixed bottom-6 right-6 z-50 px-4 py-2.5 rounded-xl bg-slate-900 border border-cyan-400/40 text-[#00F2FE] text-xs font-mono shadow-2xl flex items-center gap-2 opacity-0 pointer-events-none transition-all duration-300">
+    <span class="icon-mask icon-check text-[#00F2FE] w-4 h-4"></span>
+    <span data-i18n="skill_copied">Скопировано в буфер обмена!</span>
+  </div>
+
+  <!-- Main JavaScript File -->
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

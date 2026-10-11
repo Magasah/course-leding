@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="Коробка товара">
+<defs>
+<linearGradient id="front" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F3A34B"/><stop offset="1" stop-color="#C96B17"/></linearGradient>
+<linearGradient id="side" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#D97920"/><stop offset="1" stop-color="#9F4E0B"/></linearGradient>
+<linearGradient id="top" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFD08A"/><stop offset="1" stop-color="#E78D2D"/></linearGradient>
+<linearGradient id="tape" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F8E6BF"/><stop offset="1" stop-color="#D3B06A"/></linearGradient>
+</defs>
+<g transform="translate(0,4)">
+<path d="M92 190 256 282 256 452 92 360Z" fill="url(#front)"/>
+<path d="M256 282 420 190 420 360 256 452Z" fill="url(#side)"/>
+<path d="M92 190 256 98 420 190 256 282Z" fill="url(#top)"/>
+<path d="M92 190 256 282 420 190" fill="none" stroke="#7D3E08" stroke-width="8" stroke-linejoin="round" opacity=".55"/>
+<path d="M230 113 282 142 282 267 256 282 230 267Z" fill="url(#tape)" opacity=".95"/>
+<path d="M230 113 256 98 282 113 256 128Z" fill="#F3D594"/>
+<path d="M112 205 247 281 247 420" fill="none" stroke="#FFD79D" stroke-width="8" stroke-linecap="round" opacity=".28"/>
+<path d="M273 289 404 215" fill="none" stroke="#F0A14E" stroke-width="8" stroke-linecap="round" opacity=".28"/>
+<rect x="133" y="270" width="86" height="58" rx="10" fill="#FFF7EA" opacity=".96"/>
+<rect x="148" y="285" width="56" height="7" rx="3.5" fill="#C96B17" opacity=".75"/>
+<rect x="148" y="301" width="36" height="7" rx="3.5" fill="#C96B17" opacity=".45"/>
+</g>
+</svg>

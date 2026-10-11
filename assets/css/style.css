@@ -1,0 +1,252 @@
+/* ==========================================================================
+   mcode AI Video Masterclass — Premium Studio Stylesheet (Linear / Vercel Aesthetic)
+   ========================================================================== */
+
+:root {
+  --bg-primary: #090D16;
+  --bg-secondary: #0D1322;
+  --bg-card: rgba(15, 23, 42, 0.65);
+  --accent-cyan: #00F2FE;
+  --accent-cyan-glow: rgba(0, 242, 254, 0.35);
+  --accent-blue: #4FACFE;
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-hover: rgba(0, 242, 254, 0.4);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #090D16;
+}
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 9999px;
+  border: 2px solid #090D16;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #334155;
+}
+
+/* Base Body Grid Background */
+body {
+  background-color: var(--bg-primary);
+  color: #f1f5f9;
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  overflow-x: hidden;
+  background-image: 
+    radial-gradient(circle at 50% 0%, rgba(0, 242, 254, 0.07) 0%, transparent 50%),
+    linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+  background-size: 100% 100%, 64px 64px, 64px 64px;
+  background-position: 0 0, -1px -1px, -1px -1px;
+}
+
+/* Code & Mono Elements */
+code, pre, .font-mono {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+/* Glassmorphism Styles */
+.glass-nav {
+  background: rgba(9, 13, 22, 0.8);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.glass-card {
+  background: rgba(13, 19, 34, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card:hover {
+  border-color: rgba(0, 242, 254, 0.35);
+  box-shadow: 0 10px 40px -10px rgba(0, 242, 254, 0.12);
+  transform: translateY(-2px);
+}
+
+.glass-card-static {
+  background: rgba(13, 19, 34, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+/* Neon Glow Accents */
+.glow-cyan-btn {
+  background: linear-gradient(135deg, #00F2FE 0%, #4FACFE 100%);
+  box-shadow: 0 0 25px rgba(0, 242, 254, 0.35), inset 0 1px 1px rgba(255, 255, 255, 0.6);
+  transition: all 0.25s ease;
+}
+
+.glow-cyan-btn:hover {
+  box-shadow: 0 0 35px rgba(0, 242, 254, 0.55), inset 0 1px 2px rgba(255, 255, 255, 0.8);
+  transform: translateY(-1px);
+}
+
+.glow-cyan-btn:active {
+  transform: translateY(1px);
+}
+
+.glow-pill {
+  box-shadow: 0 0 20px rgba(0, 242, 254, 0.15);
+}
+
+.text-gradient-cyan {
+  background: linear-gradient(135deg, #ffffff 30%, #00F2FE 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-hero {
+  background: linear-gradient(180deg, #FFFFFF 20%, #94A3B8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-accent {
+  background: linear-gradient(90deg, #00F2FE 0%, #4FACFE 50%, #A855F7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* SVG Mask Icon System — strictly zero emojis, rendering assets/icons/ui */
+.icon-mask {
+  display: inline-block;
+  width: 1.25rem;
+  height: 1.25rem;
+  background-color: currentColor;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  vertical-align: middle;
+  flex-shrink: 0;
+}
+
+.icon-mask-sm { width: 1rem; height: 1rem; }
+.icon-mask-md { width: 1.25rem; height: 1.25rem; }
+.icon-mask-lg { width: 1.75rem; height: 1.75rem; }
+.icon-mask-xl { width: 2.25rem; height: 2.25rem; }
+
+/* Specific SVG Mask Definitions */
+.icon-lightning        { -webkit-mask-image: url('../icons/ui/lightning.svg'); mask-image: url('../icons/ui/lightning.svg'); }
+.icon-lightning-fast   { -webkit-mask-image: url('../icons/ui/lightning-fast.svg'); mask-image: url('../icons/ui/lightning-fast.svg'); }
+.icon-brain            { -webkit-mask-image: url('../icons/ui/ai-brain.svg'); mask-image: url('../icons/ui/ai-brain.svg'); }
+.icon-check            { -webkit-mask-image: url('../icons/ui/check-done.svg'); mask-image: url('../icons/ui/check-done.svg'); }
+.icon-check-circle     { -webkit-mask-image: url('../icons/ui/check-circle.svg'); mask-image: url('../icons/ui/check-circle.svg'); }
+.icon-code             { -webkit-mask-image: url('../icons/ui/code.svg'); mask-image: url('../icons/ui/code.svg'); }
+.icon-rocket           { -webkit-mask-image: url('../icons/ui/rocket.svg'); mask-image: url('../icons/ui/rocket.svg'); }
+.icon-diamond          { -webkit-mask-image: url('../icons/ui/diamond.svg'); mask-image: url('../icons/ui/diamond.svg'); }
+.icon-clock            { -webkit-mask-image: url('../icons/ui/clock.svg'); mask-image: url('../icons/ui/clock.svg'); }
+.icon-package          { -webkit-mask-image: url('../icons/ui/package.svg'); mask-image: url('../icons/ui/package.svg'); }
+.icon-id               { -webkit-mask-image: url('../icons/ui/id-verification.svg'); mask-image: url('../icons/ui/id-verification.svg'); }
+.icon-credit-card      { -webkit-mask-image: url('../icons/ui/credit-card.svg'); mask-image: url('../icons/ui/credit-card.svg'); }
+.icon-wallet           { -webkit-mask-image: url('../icons/ui/wallet-plus.svg'); mask-image: url('../icons/ui/wallet-plus.svg'); }
+.icon-cart             { -webkit-mask-image: url('../icons/ui/cart.svg'); mask-image: url('../icons/ui/cart.svg'); }
+.icon-headset          { -webkit-mask-image: url('../icons/ui/headset.svg'); mask-image: url('../icons/ui/headset.svg'); }
+.icon-eye              { -webkit-mask-image: url('../icons/ui/eye.svg'); mask-image: url('../icons/ui/eye.svg'); }
+.icon-link             { -webkit-mask-image: url('../icons/ui/link.svg'); mask-image: url('../icons/ui/link.svg'); }
+.icon-copy             { -webkit-mask-image: url('../icons/ui/copy.svg'); mask-image: url('../icons/ui/copy.svg'); }
+.icon-arrow-right      { -webkit-mask-image: url('../icons/ui/arrow-right-circle.svg'); mask-image: url('../icons/ui/arrow-right-circle.svg'); }
+.icon-arrow-left       { -webkit-mask-image: url('../icons/ui/arrow-left-circle.svg'); mask-image: url('../icons/ui/arrow-left-circle.svg'); }
+.icon-fire             { -webkit-mask-image: url('../icons/ui/fire.svg'); mask-image: url('../icons/ui/fire.svg'); }
+.icon-close            { -webkit-mask-image: url('../icons/ui/x-circle.svg'); mask-image: url('../icons/ui/x-circle.svg'); }
+.icon-overview         { -webkit-mask-image: url('../icons/ui/overview.svg'); mask-image: url('../icons/ui/overview.svg'); }
+.icon-settings         { -webkit-mask-image: url('../icons/ui/settings.svg'); mask-image: url('../icons/ui/settings.svg'); }
+
+/* Pulse & Glow Keyframes */
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.75;
+    transform: scale(1.05);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 6s infinite ease-in-out;
+}
+
+@keyframes radarWave {
+  0% {
+    transform: scale(0.95);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1.8);
+    opacity: 0;
+  }
+}
+
+.radar-ring {
+  animation: radarWave 2.5s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+}
+
+/* Sound waveform animation */
+@keyframes barBounce {
+  0%, 100% { height: 4px; }
+  50% { height: 18px; }
+}
+
+.wave-bar:nth-child(1) { animation: barBounce 1.2s infinite ease-in-out; }
+.wave-bar:nth-child(2) { animation: barBounce 0.9s infinite ease-in-out 0.2s; }
+.wave-bar:nth-child(3) { animation: barBounce 1.4s infinite ease-in-out 0.4s; }
+.wave-bar:nth-child(4) { animation: barBounce 0.8s infinite ease-in-out 0.1s; }
+.wave-bar:nth-child(5) { animation: barBounce 1.1s infinite ease-in-out 0.3s; }
+.wave-bar:nth-child(6) { animation: barBounce 1.3s infinite ease-in-out 0.5s; }
+
+/* Modal Transitions */
+.modal-backdrop {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease-out;
+}
+.modal-backdrop.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-content {
+  transform: scale(0.96) translateY(10px);
+  opacity: 0;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.modal-backdrop.open .modal-content {
+  transform: scale(1) translateY(0);
+  opacity: 1;
+}
+
+/* Interactive Cursor Highlight Effect */
+.glow-card-spotlight {
+  position: relative;
+  overflow: hidden;
+}
+
+.glow-card-spotlight::before {
+  content: '';
+  position: absolute;
+  top: var(--mouse-y, -100px);
+  left: var(--mouse-x, -100px);
+  width: 250px;
+  height: 250px;
+  background: radial-gradient(circle, rgba(0, 242, 254, 0.15), transparent 70%);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.glow-card-spotlight:hover::before {
+  opacity: 1;
+}
